@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>ملف المعلم المهني</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="glass-container">
+        <button onclick="window.location.href='index.html'" class="back-btn">← رجوع للرئيسية</button>
+        <h2 style="text-align: center; color: #fff;">بيانات العمل للمعلم</h2>
+        <form id="teacherDetailForm">
+            <input type="text" id="trSubject" placeholder="المادة التي تخصصت في تدريسها..." required>
+            
+            <select id="trStage" required>
+                <option value="" disabled selected>المراحل التعليمية التي تدرسها...</option>
+                <option>ابتدائي</option><option>إعدادي</option><option>ثانوي</option><option>جميع المراحل</option>
+            </select>
+
+            <select id="trMode" onchange="handleModeChange(this.value, 'tr-geo')" required>
+                <option value="" disabled selected>هل متاح للدروس الأوفلاين؟</option>
+                <option value="no">أونلاين فقط</option>
+                <option value="yes">متاح أونلاين وأوفلاين</option>
+            </select>
+
+            <div id="tr-geo" class="hidden">
+                <select id="trCity" class="city-list">
+                    <option value="" disabled selected>المحافظة المتاح العمل بها...</option>
+                </select>
+                <input type="text" id="trArea" placeholder="المناطق المتاح التواجد فيها...">
+            </div>
+
+            <button type="button" class="main-btn" onclick="submitToAdmin('teacher')">حفظ البيانات كمعلم</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

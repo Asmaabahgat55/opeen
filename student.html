@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>استكمال ملف الطالب</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="glass-container">
+        <button onclick="window.location.href='index.html'" class="back-btn">← رجوع للرئيسية</button>
+        <h2 style="text-align: center; color: #fff;">تفاصيل طلب الطالب</h2>
+        <form id="studentDetailForm">
+            <select id="stStage" required>
+                <option value="" disabled selected>اختر المرحلة التعليمية (ابتدائي/إعدادي...)</option>
+                <option>ابتدائي</option><option>إعدادي</option><option>ثانوي</option>
+            </select>
+            
+            <input type="text" id="stSubject" placeholder="المادة الدراسية المطلوبة (مثلاً: برمجة)" required>
+            
+            <select id="stMode" onchange="handleModeChange(this.value, 'st-geo')" required>
+                <option value="" disabled selected>نظام التدريس المفضل (أونلاين/أوفلاين)</option>
+                <option value="online">أونلاين</option>
+                <option value="offline">أوفلاين (حضوري)</option>
+            </select>
+
+            <div id="st-geo" class="hidden">
+                <select id="stCity" class="city-list">
+                    <option value="" disabled selected>اختر المحافظة المقيم بها...</option>
+                </select>
+                <input type="text" id="stArea" placeholder="المنطقة أو الحي بالتفصيل...">
+            </div>
+
+            <input type="number" id="stPrice" placeholder="سعر الحصة المتوقع (بالجنيه المصري)" required>
+            
+            <button type="button" class="main-btn" onclick="submitToAdmin('student')">إرسال الطلب للأدمن</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
